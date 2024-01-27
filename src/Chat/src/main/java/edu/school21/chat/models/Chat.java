@@ -5,7 +5,10 @@ import java.util.List;
 public class Chat {
     private long id;
     private String nameChat;
+
     private long idOwner;
+    private User owner;
+
     private List<Message> messageList;
 
     @Override
@@ -18,6 +21,7 @@ public class Chat {
         if (id != chat.id) return false;
         if (idOwner != chat.idOwner) return false;
         if (nameChat != null ? !nameChat.equals(chat.nameChat) : chat.nameChat != null) return false;
+        if (owner != null ? !owner.equals(chat.owner) : chat.owner != null) return false;
         return messageList != null ? messageList.equals(chat.messageList) : chat.messageList == null;
     }
 
@@ -26,6 +30,7 @@ public class Chat {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (nameChat != null ? nameChat.hashCode() : 0);
         result = 31 * result + (int) (idOwner ^ (idOwner >>> 32));
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
         result = 31 * result + (messageList != null ? messageList.hashCode() : 0);
         return result;
     }
@@ -36,6 +41,7 @@ public class Chat {
                 "id=" + id +
                 ", nameChat='" + nameChat + '\'' +
                 ", idOwner=" + idOwner +
+                ", owner=" + owner +
                 ", messageList=" + messageList +
                 '}';
     }
