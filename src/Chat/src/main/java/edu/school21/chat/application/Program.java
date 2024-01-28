@@ -22,9 +22,9 @@ public class Program {
         HikariDataSource dataSource = new HikariDataSource(config);
         MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(dataSource);
 
-        User creator = new User(2L, "antoinco", "321", null, null);
+        User creator = new User(2L, "antoinco", "321", new ArrayList<Chat>(), new ArrayList<Chat>());
         User author = creator;
-        Chat room = new Chat(3L, "kakich", 2L, Optional.of(creator), null);
+        Chat room = new Chat(3L, "kakich", 2L, Optional.of(creator), new ArrayList<Message>());
         Message newMessage = new Message(null, Optional.of(author), Optional.of(room), "ya plakichhhhh AHHAHA", Timestamp.valueOf("2024-11-02 12:23:45"));
         MessagesRepository messagesRepository1 = new MessagesRepositoryJdbcImpl(dataSource);
         messagesRepository1.save(newMessage);
