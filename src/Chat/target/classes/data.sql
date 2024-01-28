@@ -89,7 +89,7 @@ where login = 'gradyzan'),
 (select id from mama.Chatroom
 where Chatroom_name = 'nitik'),
 'ну да я знаю что ты нытич, беда',
-'2024-11-02 12:25:11'
+'2024-11-02 12:26:11'
 )--
 
 insert into mama.Message(author, room, text, date_time) values (

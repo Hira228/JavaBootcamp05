@@ -2,12 +2,13 @@ package edu.school21.chat.models;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Optional;
 
 public class Message {
     private long id;
 
     private long authorMessage;
-    private User author;
+    private Optional<User> author;
 
     public long getId() {
         return id;
@@ -25,11 +26,11 @@ public class Message {
         this.authorMessage = authorMessage;
     }
 
-    public User getAuthor() {
+    public Optional<User> getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Optional<User> author) {
         this.author = author;
     }
 
@@ -41,12 +42,12 @@ public class Message {
         this.idRoom = idRoom;
     }
 
-    public Chat getChat() {
-        return chat;
+    public Optional<Chat> getChat() {
+        return room;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
+    public void setChat(Optional<Chat> chat) {
+        this.room = chat;
     }
 
     public String getText() {
@@ -66,7 +67,7 @@ public class Message {
     }
 
     private long idRoom;
-    private Chat chat;
+    private Optional<Chat> room;
 
     private String text;
     private Timestamp date;
@@ -82,7 +83,7 @@ public class Message {
         if (authorMessage != message.authorMessage) return false;
         if (idRoom != message.idRoom) return false;
         if (author != null ? !author.equals(message.author) : message.author != null) return false;
-        if (chat != null ? !chat.equals(message.chat) : message.chat != null) return false;
+        if (room != null ? !room.equals(message.room) : message.room != null) return false;
         if (text != null ? !text.equals(message.text) : message.text != null) return false;
         return date != null ? date.equals(message.date) : message.date == null;
     }
@@ -93,7 +94,7 @@ public class Message {
         result = 31 * result + (int) (authorMessage ^ (authorMessage >>> 32));
         result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (int) (idRoom ^ (idRoom >>> 32));
-        result = 31 * result + (chat != null ? chat.hashCode() : 0);
+        result = 31 * result + (room != null ? room.hashCode() : 0);
         result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
@@ -102,13 +103,12 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "id=" + id +
-                ", authorMessage=" + authorMessage +
-                ", author=" + author +
-                ", idRoom=" + idRoom +
-                ", chat=" + chat +
-                ", text='" + text + '\'' +
-                ", date=" + date +
+                "\n\tid=" + id +
+                ",\n\tauthor=" + author.get() +
+                ",\n\tchat=" + room.get() +
+                ",\n\ttext='" + text + '\'' +
+                ",\n\tdate=" + date +
+                '\n' +
                 '}';
     }
 }

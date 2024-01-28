@@ -1,13 +1,54 @@
 package edu.school21.chat.models;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Chat {
     private long id;
     private String nameChat;
 
     private long idOwner;
-    private User owner;
+    private Optional<User> owner;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNameChat() {
+        return nameChat;
+    }
+
+    public void setNameChat(String nameChat) {
+        this.nameChat = nameChat;
+    }
+
+    public long getIdOwner() {
+        return idOwner;
+    }
+
+    public void setIdOwner(long idOwner) {
+        this.idOwner = idOwner;
+    }
+
+    public Optional<User> getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Optional<User> owner) {
+        this.owner = owner;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
 
     private List<Message> messageList;
 
@@ -41,7 +82,7 @@ public class Chat {
                 "id=" + id +
                 ", nameChat='" + nameChat + '\'' +
                 ", idOwner=" + idOwner +
-                ", owner=" + owner +
+                ", owner=" + owner.get() +
                 ", messageList=" + messageList +
                 '}';
     }

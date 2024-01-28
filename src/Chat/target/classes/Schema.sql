@@ -30,3 +30,4 @@ select * from mama.User as u
 join mama.Message as m on m.author = u.id
 
 select * from mama.Message
+commit

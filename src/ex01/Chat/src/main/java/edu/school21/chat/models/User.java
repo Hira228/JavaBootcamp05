@@ -7,6 +7,47 @@ public class User {
     private String login;
     private String password;
     private List<Chat> chatsOwner;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Chat> getChatsOwner() {
+        return chatsOwner;
+    }
+
+    public void setChatsOwner(List<Chat> chatsOwner) {
+        this.chatsOwner = chatsOwner;
+    }
+
+    public List<Chat> getActiveChats() {
+        return activeChats;
+    }
+
+    public void setActiveChats(List<Chat> activeChats) {
+        this.activeChats = activeChats;
+    }
+
     private List<Chat> activeChats;
 
     @Override

@@ -17,6 +17,5 @@ public class Program {
         MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(dataSource);
         Optional<Message> byId = messagesRepository.findById((long) 1);
         System.out.println(byId.get());
-
     }
 }
