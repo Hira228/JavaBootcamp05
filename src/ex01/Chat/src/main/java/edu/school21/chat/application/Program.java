@@ -15,7 +15,7 @@ public class Program {
         HikariConfig config = new HikariConfig("/hikari.properties");
         HikariDataSource dataSource = new HikariDataSource(config);
         MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(dataSource);
-        Optional<Message> byId = messagesRepository.findById((long) 1);
+        Optional<Message> byId = messagesRepository.findById((long) 2);
         System.out.println(byId.get());
     }
 }

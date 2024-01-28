@@ -81,7 +81,6 @@ public class Chat {
         return "Chat{" +
                 "id=" + id +
                 ", nameChat='" + nameChat + '\'' +
-                ", idOwner=" + idOwner +
                 ", owner=" + owner.get() +
                 ", messageList=" + messageList +
                 '}';
